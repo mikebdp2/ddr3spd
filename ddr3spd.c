@@ -306,17 +306,17 @@ static void print_info(FILE *pFile) {
       say(" row address bits\n");
 /* ==================================================================================== */
     value = print_value(pFile, "SPD_VOLTAGE", SPD_VOLTAGE, 1, 0, 0);
-    switch(bits(value, 1, 0)) {
+    switch(bits(value, 0, 0)) {
          case  0: say("1.5V "); break;
          case  1: say(""); break;
         default: say("???"); break;
     }
-    switch(bits(value, 2, 1)) {
+    switch(bits(value, 1, 1)) {
          case  0: say(""); break;
          case  1: say("1.35V "); break;
         default: say("???"); break;
     }
-    switch(bits(value, 2, 1)) {
+    switch(bits(value, 2, 2)) {
          case  0: say(""); break;
          case  1: say("1.25V "); break;
         default: say("???"); break;
@@ -531,19 +531,19 @@ static void print_info(FILE *pFile) {
 /* ==================================================================================== */
     value = print_value(pFile, "XMP_PROFILES", XMP_PROFILES, 1, 0, 0);
       say("\n XMP PROFILE 1: ");
-    switch(bits(value, 1, 0)) {
+    switch(bits(value, 0, 0)) {
          case  0: say("disabled"); break;
          case  1: say("enabled"); break;
         default: say("???"); break;
     }
       say("\n XMP PROFILE 2: ");
-    switch(bits(value, 2, 1)) {
+    switch(bits(value, 1, 1)) {
          case  0: say("disabled"); break;
          case  1: say("enabled"); break;
         default: say("???"); break;
     }
       say("\n");
-    if (bits(value, 1, 0) == 1) {
+    if (bits(value, 0, 0) == 1) {
 /* ==================================================================================== */
     xmp1_divident = print_value(pFile, "XMP1_DIVIDENT", XMP1_DIVIDENT, 1, 0, 0);
       fprintf(stdout, "%i\n", xmp1_divident);
